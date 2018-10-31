@@ -1,8 +1,8 @@
-## Installation globale d'une CRNA
+## Global install of CRNA
 ```npm install -g create-react-native-app```
 
-## Nouveau projet
+## New project
 ```create-react-native-app project_name```
 
-## Démarrer le serveur
+## Start server
 ```npm start```
