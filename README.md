@@ -1,8 +1,8 @@
 # Get started with React Native
 
 ### Global install of CRNA
-```npm install -g create-react-native-app``` :custard:
+```npm install -g create-react-native-app``` 
 ### New project
-```create-react-native-app project_name``` :coffee:
+```create-react-native-app project_name``` 
 ### Start server
-```npm start``` :shipit:
+```npm start``` 
