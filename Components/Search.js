@@ -16,10 +16,6 @@ class Search extends React.Component {
         this.page = 0 // Compteur pour connaître la page courante
         this.totalPages = 0 // Nombre de pages totales pour savoir si on a atteint la fin des retours de l'API TMDB
     }
-    
-    _searchTextInputChanged(text) {
-        this.searchedText = text
-    }
 
     _loadFilms() {
         console.log(this.searchedText) // Un log pour vérifier qu'on a bien le texte du TextInput
@@ -34,6 +30,10 @@ class Search extends React.Component {
                 })
             })
         }
+    }
+
+    _searchTextInputChanged(text) {
+        this.searchedText = text
     }
 
     _searchFilms() {  // Ici on va remettre à zéro les films de notre state
@@ -55,6 +55,11 @@ class Search extends React.Component {
             )
         }
     }
+
+    _displayDetailForFilm = (idFilm) => {
+        console.log("Display film with id " + idFilm)
+        this.props.navigation.navigate("FilmDetail", {idFilm: idFilm})
+    }
     
     render() {
         console.log(this.state.isLoading)
@@ -74,7 +79,7 @@ class Search extends React.Component {
                 <FlatList
                     data={this.state.films}
                     keyExtractor={(item) => item.id.toString()}
-                    renderItem={({item}) => <FilmItem film={item}/>}
+                    renderItem={({item}) => <FilmItem film={item} displayDetailForFilm = {this._displayDetailForFilm} />}
                     onEndReachedThreshold={0.5}
                     onEndReached={() => {
                         if (this.state.films.length > 0 && this.page < this.totalPages) { // On vérifie également qu'on n'a pas atteint la fin de la pagination (totalPages) avant de charger plus d'éléments
@@ -90,7 +95,6 @@ class Search extends React.Component {
     
 const styles = StyleSheet.create({
     main_container: {
-        marginTop: 20,
         flex: 1
     },
     textinput: {

@@ -1,12 +1,12 @@
-import React from 'react';
-import Search from './Components/Search'
-import FlexBox from './Components/FlexBox';
+// App.js
+
+import React from 'react'
+import Navigation from './Navigation/Navigation'
 
 export default class App extends React.Component {
   render() {
     return (
-      <Search/>
-      // <FlexBox/>
-    );
+      <Navigation/>
+    )
   }
 }
